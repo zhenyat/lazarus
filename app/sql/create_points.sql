@@ -48,3 +48,5 @@ SELECT count(*) FROM Points;
 
 .print "\nFirst and last rows:"
 SELECT * FROM Points WHERE (id = 1 OR id = 158);
+
+printf("%c[3%dm%%s%c[0m", char(27), n, char(27))
