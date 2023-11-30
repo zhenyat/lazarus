@@ -11,3 +11,18 @@
 ### DB GUI:
   - DB Browser for SQLite
   - Valentina Studio
+
+## Commands to create and populate Production DB:
+```sh
+  % rm db/lazarus.sqlite3
+  % sqlite3 db/lazarus.sqlite3
+    > .read app/sql/create_schools.sql
+    > .read app/sql/create_scales.sql
+    > .read app/sql/create_questionnaire.sql
+    > .read app/sql/create_points.sql
+    > .read app/sql/create_respondents.sql
+    > .read app/sql/create_responses.sql
+    > .read app/sql/create_scores.sql
+  % app/python/populate_points.py 
+  % app/python/populate_survey_data.py 
+```

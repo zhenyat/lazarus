@@ -9,8 +9,8 @@
  *********************************************************************/
 
 CREATE TABLE IF NOT EXISTS Questionnaire (
-  id INTEGER PRIMARY KEY,
-  scale_id INTEGER,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  scale_id INTEGER NOT NULL,
   item TEXT NOT NULL UNIQUE,
   FOREIGN KEY(scale_id) REFERENCES Scales(id) ON DELETE CASCADE
 );
