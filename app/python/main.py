@@ -21,8 +21,6 @@ def main():
 
             process_data.populate(conn, school, form, raw_data)
 
-            # raw_data.closed() 
-
     conn.close()
     cprint('==== Well Done!', 'green')
 

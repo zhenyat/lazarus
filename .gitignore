@@ -3,6 +3,7 @@
 /db/*.sqlite3-*
 /db/csv
 
+/app/python/__pycache__
 /app/tests/__pycache__
 
 # Ignore macOS sys files

@@ -16,6 +16,7 @@ def populate(conn, school, form, raw_data):
         cells = row.strip().split(',')
         if len(cells) != settings.questions:
             cprint(('process_data.py: Incorrect number of elements: {0}').format(len(cells)), 'red')
+
             exit()
     
         sex = 'M' if (cells.pop(0) == 'Мужской') else 'F' # Translate sex
@@ -64,11 +65,5 @@ def populate(conn, school, form, raw_data):
                        )
         conn.commit()
 
-
     print(colored(f'===== Table "Respondent": {current_respondent_id} records  total', 'green'))
     print(colored(f'===== Table "Responses": {cur.lastrowid} records  total', 'green'))
-
-
-
-
-
