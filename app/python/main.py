@@ -1,29 +1,31 @@
 #! /usr/bin/env python3
 
-from params import DB_PRODUCTION, SCHOOLS, FORMS
+from params import DB_PRODUCTION, SCHOOL_NICKS, FORMS
 import db
 import csv
 from termcolor import cprint
-import process_data
+import raw_data
+import scores
 
 
 def main():
-    print('hello from main')
+    # print('hello from main')
     conn = db.create_connection(DB_PRODUCTION)
-    print(conn)
+    # print(conn)
 
-    for school in SCHOOLS:
-        print(school)
+    for school_nick in SCHOOL_NICKS:
+        # print(school_nick)
         for form in FORMS:
-            print(form)
-            csv_file = 'db/csv/' + school + '-' + str(form) + '.csv'
-            print(csv_file)
-            raw_data = csv.get_raw_data(csv_file)
+            # print(form)
+            csv_file = 'db/csv/' + school_nick + '-' + str(form) + '.csv'
+            # print(csv_file)
+            data = csv.get_raw_data(csv_file)
 
-            process_data.populate(conn, school, form, raw_data)
+            raw_data.populate(conn, school_nick, form, data)
 
+    scores.populate(conn)
     conn.close()
-    cprint('==== Well Done!', 'green')
+    # cprint('==== Well Done!', 'green')
 
 if __name__ == '__main__':
     main()
