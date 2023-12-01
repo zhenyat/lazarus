@@ -1,19 +1,20 @@
 #! /usr/bin/env python3
 
-import settings
+from params import DB_PRODUCTION, SCHOOLS, FORMS
 import db
 import csv
 from termcolor import cprint
 import process_data
 
+
 def main():
     print('hello from main')
-    conn = db.create_connection(settings.db_production)
+    conn = db.create_connection(DB_PRODUCTION)
     print(conn)
 
-    for school in settings.schools:
+    for school in SCHOOLS:
         print(school)
-        for form in settings.forms:
+        for form in FORMS:
             print(form)
             csv_file = 'db/csv/' + school + '-' + str(form) + '.csv'
             print(csv_file)

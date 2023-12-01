@@ -4,26 +4,28 @@
 #   30.11.2023  Rada Telyukova
 ########################################################################
 from termcolor import cprint, colored
-import settings
+from params import AGE_MIN, AGE_MAX, NUMBER_OF_QUESTIONS
+
 
 def populate(conn, school, form, raw_data):
 
-    ### Extract data from CSV file row by row
+    # Extract data from CSV file row by row
     for row in raw_data:
 
         # row string into Array
         cells = []
         cells = row.strip().split(',')
-        if len(cells) != settings.questions:
-            cprint(('process_data.py: Incorrect number of elements: {0}').format(len(cells)), 'red')
+        if len(cells) != NUMBER_OF_QUESTIONS:
+            cprint(('process_data.py: Incorrect number of elements: {0}').format(
+                len(cells)), 'red')
 
             exit()
-    
-        sex = 'M' if (cells.pop(0) == 'Мужской') else 'F' # Translate sex
+
+        sex = 'M' if (cells.pop(0) == 'Мужской') else 'F'  # Translate sex
 
         age = int(cells.pop(0))
         # Clean raw data by age
-        if age <= settings.age_min or age > settings.age_max:
+        if age <= AGE_MIN or age > AGE_MAX:
             cprint('Age {0} is not allowed'.format(age), 'red')
             continue
         print(sex, age)
@@ -38,8 +40,8 @@ def populate(conn, school, form, raw_data):
                 INSERT INTO Respondents (school_id, sex, age, form) 
                 VALUES (?, ?, ?, ?)
             ''',
-            (school_id, sex, age, form)
-        )
+                    (school_id, sex, age, form)
+                    )
         conn.commit()
         current_respondent_id = cur.lastrowid   # Current (last) Respondent
 
@@ -61,9 +63,11 @@ def populate(conn, school, form, raw_data):
                 exit()
 
         cur.execute('INSERT INTO Responses (respondent_id, questionnaire_id, answer) VALUES (?, ?, ?)',
-                       (current_respondent_id, questionnaire_id, answer)
-                       )
+                    (current_respondent_id, questionnaire_id, answer)
+                    )
         conn.commit()
 
-    print(colored(f'===== Table "Respondent": {current_respondent_id} records  total', 'green'))
-    print(colored(f'===== Table "Responses": {cur.lastrowid} records  total', 'green'))
+    print(colored(
+        f'===== Table "Respondent": {current_respondent_id} records  total', 'green'))
+    print(
+        colored(f'===== Table "Responses": {cur.lastrowid} records  total', 'green'))
