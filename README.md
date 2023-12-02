@@ -23,6 +23,4 @@
     > .read app/sql/create_respondents.sql
     > .read app/sql/create_responses.sql
     > .read app/sql/create_scores.sql
-  % app/python/populate_points.py 
-  % app/python/populate_survey_data.py 
 ```
