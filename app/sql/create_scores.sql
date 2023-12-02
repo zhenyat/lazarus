@@ -1,10 +1,11 @@
 /********************************************************************
  *  Creates table Scores - final (summary) table of the field data    *
+ *                         for futher analysis                      *
  *                                                                  *
  *      id                - Primary key                             *
  *      respondent_id     - Foreign key                             *
  *      kind              - enum { 'original' | 'standard'  }       *
- *      v1 ... v8         - Score values for Scales 1...8           *
+ *      v1 ... v8         - Score values for Scales 1..8            *
  *                                                                  *
  *  20.11.2023  Rada                                                *
  ********************************************************************/

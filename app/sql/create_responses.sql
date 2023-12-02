@@ -1,13 +1,13 @@
-/*****************************************
- *  Creates table Responses              *
- *                                       *
- *    id                - Primary key    *
- *    respondent_id     - Foreign key    *
- *    questionnaire_id  - Foreign key    *
- *    answer            - enumerated     *
- *                                       *
- *  30.11.2023  Rada Telyukova           *
- * * * * * * * * * * * * * * * * * * * * */
+/*******************************************************************************
+ *  Creates table Responses                                                    *
+ *                                                                             *
+ *    id                - Primary key                                          *
+ *    respondent_id     - Foreign key                                          *
+ *    questionnaire_id  - Foreign key                                          *
+ *    answer            - enumerated  {never | rarely | sometimes | regularly} *
+ *                                                                             *
+ *  30.11.2023  Rada Telyukova                                                 *
+ *******************************************************************************/
 
 CREATE TABLE IF NOT EXISTS Responses (
   id INTEGER PRIMARY KEY,

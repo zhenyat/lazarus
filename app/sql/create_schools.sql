@@ -23,5 +23,4 @@ VALUES
 
 .print "\nTable 'Schools' has been populated:"
 .mode columns
-.header on
 SELECT * FROM Schools;

@@ -1,8 +1,8 @@
 /*******************************************************************************
  *  Creates table 'Points' and populates it with CSV data                      *
  *    Includes:                                                                *
- *        original points                                                      *
- *        standard (Wasserman et al.) points                                 *
+ *        original points (Kryukova et el.)                                    *
+ *        standard (Wasserman et al.) points                                   *
  *     https://psylab.info/Опросник_«Способы_совладающего_поведения»_Лазаруса  *
  *                                                                             *
  *    id                  - Primary key                                        *
@@ -37,11 +37,11 @@ CREATE TABLE IF NOT EXISTS Points (
 .schema Points
 
 -- Get CSV data
-.mode csv.
+.mode csv
+.header off
 .import db/csv/points.csv Points
 
 .mode columns
-.header on
 .print "\nTable 'Points' has been populated"
 .print "\nNumber of rows:"
 SELECT count(*) FROM Points;

@@ -31,6 +31,5 @@ VALUES
   ('Положительная переоценка', 'Positive reappraisal');
 
 .mode columns
-.header on
 .print "\nTable 'Scales' has been populated:"
 SELECT * FROM Scales;

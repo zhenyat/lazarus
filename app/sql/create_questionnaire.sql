@@ -20,10 +20,10 @@ CREATE TABLE IF NOT EXISTS Questionnaire (
 
 -- Get CSV data
 .mode csv
+.header off
 .import db/csv/questionnaire.csv Questionnaire
 
 .mode columns
-.header on
 .print "\nTable 'Questionnaire' has been populated"
 .print "\nNumber of rows:"
 SELECT count(*) FROM Questionnaire;
