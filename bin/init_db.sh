@@ -16,11 +16,11 @@ else
     then
         bin/create_test_db.sh 'db/lazarus_test.sqlite3'
 
-    elif  [ "$1" = "production" ]; then
+    elif  [ "$1" = "production" ];
+    then
         bin/create_production_db.sh 'db/lazarus.sqlite3'
 
     else
         echo "Parameter must be either 'test' or 'production'"
-        exit()
     fi
 fi

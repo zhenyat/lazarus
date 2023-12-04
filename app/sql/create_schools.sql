@@ -7,7 +7,6 @@
  *                                              *
  *   28.11.2023  Rada                           *
  ************************************************/
-
 CREATE TABLE IF NOT EXISTS Schools (
   id INTEGER PRIMARY KEY,
   nick TEXT NOT NULL UNIQUE,
@@ -19,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Schools (
 INSERT INTO Schools (nick, title)
 VALUES 
   ('lyceum', 'Лицей НИУ ВШЭ'),
-  ('1570',   'ГБОУ Школа № 1570 г. Москвы');
+  ('1570', 'ГБОУ Школа № 1570 г. Москвы');
 
 .print "\nTable 'Schools' has been populated:"
 .mode columns

@@ -1,4 +1,4 @@
-#!/bin/zsh
+#! /usr/bin/env zsh
 
 ##########################################################
 #   Shell procedure to create and populate production DB
@@ -17,4 +17,5 @@ sqlite3 "$1" <<'END_SQL'
 .read app/sql/create_respondents.sql
 .read app/sql/create_responses.sql
 .read app/sql/create_points.sql
+.read app/sql/create_scores.sql
 END_SQL

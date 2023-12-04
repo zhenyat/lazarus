@@ -5,8 +5,7 @@
  *    school_id   - Foreign key                 *
  *    sex         - enumerated  {'F' | 'M'}     *
  *    age         - 14 <= age <= 60 (Wasserman) *
- *    form                                      *
-         - enumerated  {9 | 11}                 *
+ *    form        - enumerated  {9 | 11}        *
  *                                              *
  *  30.11.2023  Rada Telyukova                  *
  * * * * * * * * * * * * * * * * * * * * * * * **/
