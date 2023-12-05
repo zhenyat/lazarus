@@ -1,8 +1,10 @@
 #! /usr/bin/env zsh
 
 ##########################################################
-#   Shell procedure to create and populate production DB
+#   Shell procedure to create and populate DB
 #       Parameter $1 - DB filename
+#
+#   04.12.2023  Rada Telyukova, HSE Lyceum 
 ##########################################################
 
 if [ -f "$1" ]; 
