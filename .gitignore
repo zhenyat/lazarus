@@ -1,8 +1,6 @@
-/app/python/__pycache__
-/app/tests/__pycache__
+__pycache__/
 
 /db
-
 /images
 
 # Ignore macOS sys files

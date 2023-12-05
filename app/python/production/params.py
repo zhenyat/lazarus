@@ -1,7 +1,7 @@
 ######################################
-#   params for App execution
+#   Parameters for App execution
 #
-#   30.11.2023  Rada
+#   05.12.2023  Rada
 ######################################
 DB_PRODUCTION = 'db/lazarus.sqlite3'
 DB_TEST = 'db/lazarus_test.sqlite3'
@@ -13,5 +13,6 @@ FORMS = [9, 11]
 
 NUMBER_OF_QUESTIONS = 52  # Number of questions in Questionnaire
 
+# Age range for Wasserman model
 AGE_MIN = 14
 AGE_MAX = 60

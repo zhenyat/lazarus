@@ -4,6 +4,7 @@
 #   30.11.2023  Rada Telyukova
 ########################################################################
 from termcolor import cprint, colored
+
 from params import AGE_MIN, AGE_MAX, NUMBER_OF_QUESTIONS
 
 def populate(conn, school_nick, form, data):
@@ -61,6 +62,3 @@ def populate(conn, school_nick, form, data):
                         (current_respondent_id, questionnaire_id, answer)
                         )
             conn.commit()
-
-    # print(colored(f'===== Table "Respondent": {current_respondent_id} records  total', 'green'))
-    # print(colored(f'===== Table "Responses": {cur.lastrowid} records  total', 'green'))
