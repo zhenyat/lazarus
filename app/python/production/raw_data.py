@@ -30,7 +30,7 @@ def populate(conn, school_nick, form, data):
 
         cur = conn.cursor()
         cur.execute('SELECT id FROM Schools WHERE nick=?', (school_nick, ))
-        school_id = cur.fetchone()[0]   # First element of tuple
+        school_id, = cur.fetchone()
         # print(school_id)
 
         # Populate data into Respondent

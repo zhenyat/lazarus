@@ -16,3 +16,5 @@ NUMBER_OF_QUESTIONS = 52  # Number of questions in Questionnaire
 # Age range for Wasserman model
 AGE_MIN = 14
 AGE_MAX = 60
+
+FAKED_RESPONDENTS = 50  # Number of Respondents per Form sample
