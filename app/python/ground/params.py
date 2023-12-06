@@ -17,4 +17,6 @@ NUMBER_OF_QUESTIONS = 52  # Number of questions in Questionnaire
 AGE_MIN = 14
 AGE_MAX = 60
 
+MODELS = ['original', 'standard']
+
 FAKED_RESPONDENTS = 50  # Number of Respondents per Form sample
