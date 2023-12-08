@@ -27,5 +27,6 @@ CREATE TABLE IF NOT EXISTS Questionnaire (
 .print "\nTable 'Questionnaire' has been populated"
 .print "\nNumber of rows:"
 SELECT count(*) FROM Questionnaire;
+
 .print "\nFirst and last rows:"
 SELECT * FROM Questionnaire WHERE (id=1 OR id=50);

@@ -1,12 +1,11 @@
 ####### Faked data for Respondents
 
 from termcolor import colored
-from faker import Faker
+import random
 
 from params import SCHOOL_NICKS, FORMS, FAKED_RESPONDENTS
 
 def populate_with_fakes(conn):
-    faker = Faker('ru_RU')
 
     with conn:
 
@@ -18,8 +17,7 @@ def populate_with_fakes(conn):
             for form in FORMS:                  # Form cycle
                 age = 15 if form == 9 else 17
                 for respondent_id in range(FAKED_RESPONDENTS):
-                    p = faker.profile()
-                    sex = p['sex']
+                    sex = random.choice(['M', 'F'])
 
                     cur.execute(
                         'INSERT INTO Respondents (school_id, sex, age, form) VALUES (?, ?, ?, ?)',

@@ -1,8 +1,6 @@
 ####### Faked data for Responses
 
-from sqlite3 import Error
 from termcolor import colored
-from faker import Faker
 import random
 
 def populate_with_fakes(conn):

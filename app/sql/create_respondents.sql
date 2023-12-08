@@ -17,5 +17,6 @@ CREATE TABLE IF NOT EXISTS Respondents (
   form INTEGER NOT NULL CHECK(form IN (9, 11)) DEFAULT 9,
   FOREIGN KEY(school_id) REFERENCES Schools(id) ON DELETE CASCADE
 );
+
 .print "\nTable 'Respondents' has been created with schema:"
 .schema Respondents

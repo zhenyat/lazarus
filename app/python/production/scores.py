@@ -7,6 +7,8 @@
 from sqlite3 import Error
 from termcolor import colored
 
+from params import SCALES
+
 def populate(conn):
     with conn:
         cur = conn.cursor()
@@ -32,7 +34,7 @@ def populate(conn):
                     FROM Responses
                     WHERE respondent_id=?
                 ''',
-                (respondent_id,)
+                (respondent_id,)    # tuple: with comma
             )
             responses = cur.fetchall()
 
@@ -40,8 +42,8 @@ def populate(conn):
 
                 # Get Scale
                 cur.execute("SELECT scale_id FROM Questionnaire WHERE id=?",
-                            (questionnaire_id,)
-                            )
+                    (questionnaire_id,)
+                )
 
                 # Original (Kryukova) scores
                 for scale_id, in cur.fetchall():
@@ -55,12 +57,11 @@ def populate(conn):
                         case 'regularly':
                             original_score[scale_id] += 3
                         case _:
-                            print(
-                                colored(f'----- Incorrect answer: {answer}'), 'red')
+                            print(colored(f'----- Incorrect answer: {answer}'), 'red')
                             exit()
 
-            # Standard (Wasserman) scores
-            for scale_id in range(1, 9):
+            # Standard (Wasserman) scores for each Scale
+            for scale_id in range(1, SCALES+1):
                 cur.execute(
                     '''
                         SELECT male_u20_points, male_21_30_points, male_31_45_points, male_46_60_points,
@@ -91,7 +92,7 @@ def populate(conn):
                     print(colored(f'----- Incorrect age: {age}'), 'red')
                     exit()
 
-            # Two records for Scores
+            # Two records for table Scores
             rows = [
                 (respondent_id, original_score[0], original_score[1], original_score[2], original_score[3],
                  original_score[4], original_score[5],  original_score[6], original_score[7], original_score[8]),

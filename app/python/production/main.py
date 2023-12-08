@@ -9,6 +9,7 @@ from termcolor import cprint
 
 from params import DB_PRODUCTION, SCHOOL_NICKS, FORMS
 import csv
+
 import counting
 import db
 import raw_data
@@ -21,11 +22,11 @@ def main():
 
     # Populate 'Respondents' & 'Responses'
     for school_nick in SCHOOL_NICKS:
-        # print(school_nick)
+        # print('===== school_nick: ', school_nick)
         for form in FORMS:
-            # print(form)
+            # print('===== form: ', form)
             csv_file = 'db/csv/' + school_nick + '-' + str(form) + '.csv'
-            # print(csv_file)
+            # print('===== input csv_file: 'csv_file)
             data = csv.get_raw_data(csv_file)
 
             raw_data.populate(conn, school_nick, form, data)

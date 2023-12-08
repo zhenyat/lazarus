@@ -7,6 +7,8 @@
 from sqlite3 import Error
 from termcolor import colored
 
+from params import SCALES
+
 def populate_with_fakes(conn):
     with conn:
         cur = conn.cursor()
@@ -60,7 +62,7 @@ def populate_with_fakes(conn):
                             exit()
 
             # Standard (Wasserman) scores
-            for scale_id in range(1, 9):
+            for scale_id in range(1, SCALES+1):
                 cur.execute(
                     '''
                         SELECT male_u20_points, male_21_30_points, male_31_45_points, male_46_60_points,
