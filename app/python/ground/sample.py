@@ -77,7 +77,7 @@ def show_data(data, data_set_name):
 def show_statistics(df, data_set_name):
     print("\n===== DataFrame: ", data_set_name)
     # print("-----DataFrame head():\n", df.head())
-    print("\t     (mean  ± std dev):")
+    print("\t     (mean  ± std dev)")
     print("\ts1:   %5.2f ± %5.2f" % (df['s1'].mean(), df['s1'].std()))
     print("\ts2:   %5.2f ± %5.2f" % (df['s2'].mean(), df['s2'].std()))
     print("\ts3:   %5.2f ± %5.2f" % (df['s3'].mean(), df['s3'].std()))

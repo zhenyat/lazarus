@@ -1,12 +1,12 @@
 #! /usr/bin/env python3
 
 ########################################################################
-#   Analyzes Scores sample by sample
+#   Reviews Scores sample by sample
 #
 #   06.12.2023  Rada Telyukova
 ########################################################################
 
-from params import DB_GROUND, SCHOOL_NICKS, FORMS, MODELS
+from params import DB_GROUND, SCHOOL_NICKS, FORMS, MODELS, DATA_FRAMES_DIR
 import db
 import sample
 import charts
@@ -14,7 +14,7 @@ import charts
 def main():
     conn = db.create_connection(DB_GROUND)
 
-    data_frame_collection = {}
+    data_frames = {}
 
     for school_nick in SCHOOL_NICKS:
         for form in FORMS:
@@ -32,14 +32,14 @@ def main():
                 print(df.describe())
                 print(df.corr())
 
-                file_path = 'db/data_frames/' + df_name
+                file_path = DATA_FRAMES_DIR + df_name
                 df.to_pickle(file_path)
 
                 # print(np.asarray(df))
-                # data_frame_collection[df_name] = df
+                data_frames[df_name] = df
                 # print(df[0])
 
-                # charts.histograms(df, df_name)
+                charts.histograms(df, df_name)
                 # charts.sample_scatters(df, df_name)
 
     conn.close()

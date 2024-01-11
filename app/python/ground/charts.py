@@ -5,15 +5,16 @@
 ########################################################################
 import matplotlib.pyplot as plt
 
-from params import SCALES, SHOW_PLOTS, SAVE_PLOTS
+from params import SCALES, SHOW_PLOTS, SAVE_PLOTS, HISTOGRAMS_DIR, SCATTERS_DIR
 
 ######
 #   ALL histoggrams for the Data Frame
 ######
 def histograms(dataframe, data_frame_name):
-    dataframe.hist()
+    dataframe.hist()  # simple hist - different x-axe ranges
+    dataframe.plot(kind='hist', subplots=True, title=data_frame_name)   # Good one!
 
-    plot_file_name = 'images/histograms/' + data_frame_name + '.pdf'
+    plot_file_name = HISTOGRAMS_DIR + data_frame_name + '.pdf'
     if SAVE_PLOTS:
         plt.savefig(plot_file_name)
     if SHOW_PLOTS:
@@ -37,7 +38,7 @@ def sample_scatters(dataframe, data_frame_name):
                 plt.show()
                 plt.close()
             if SAVE_PLOTS:
-                plot_file_name = 'images/scatters/' + '-' + x + '-' + y + '.pdf'
+                plot_file_name = SCATTERS_DIR + '-' + x + '-' + y + '.pdf'
                 plt.savefig(plot_file_name)
 
 ######

@@ -1,7 +1,8 @@
 ##############################################
-#   Parameters for Faked data generation
+#   Parameters for Faked Data generation
 #
-#   05.12.2023  Rada
+#   05.12.2023  Rada Telyukova
+#   11.01.2024  Last update
 ##############################################
 from termcolor import colored
 
@@ -47,11 +48,18 @@ MODELS = ['standard']
 # STRONG_WEIGHTS = [('empty'), (5, 4, 1, 0), (0, 1, 4, 5), (0, 1, 4, 5), (0, 1, 4, 5), (0, 1, 4, 5), (1, 4, 4, 1), (0, 1, 4, 5), (1, 4, 4, 1)]
 # WEAK_WEIGHTS   = [('empty'), (0, 1, 4, 5), (5, 4, 1, 0), (5, 4, 1, 0), (5, 4, 1, 0), (5, 4, 1, 0), (4, 1, 1, 4), (5, 4, 1, 0), (4, 1, 1, 4)]
 
-# Wasserman scales grouping Scales          1             2             3             4             5             6             7             8
+# Wasserman scales grouping
+#                   Scales:                  1             2             3             4             5             6             7             8
 CONSTRUCTIVE_WEIGHTS     = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (0, 0, 3, 7), (0, 0, 3, 7), (0, 1, 4, 5), (7, 3, 0, 0), (0, 0, 3, 7), (0, 1, 4, 5)]
 NON_CONSTRUCTIVE_WEIGHTS = [('empty'), (0, 0, 3, 7), (0, 0, 3, 7), (7, 3, 0, 0), (7, 3, 0, 0), (2, 3, 3, 2), (0, 0, 3, 7), (7, 3, 0, 0), (2, 3, 3, 2)]
 REL_CONSTRUCTIVE_WEIGHTS = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (2, 2, 3, 3), (2, 2, 3, 3), (0, 0, 3, 7), (7, 3, 0, 0), (2, 2, 3, 3), (0, 0, 3, 7)]
 
 # Visualization
 SHOW_PLOTS = True
-SAVE_PLOTS = False
+SAVE_PLOTS = True
+
+# Directories
+DATA_FRAMES_DIR = 'db/data_frames/'
+HISTOGRAMS_DIR = 'images/histograms/'
+SCATTERS_DIR = 'images/scatters/'
+MC_DIR = 'images/mc'

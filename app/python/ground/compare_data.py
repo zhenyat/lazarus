@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 ########################################################################
-#   Compare two samples as dataframes
+#   Compares two samples as dataframes
 #
 #   11.12.2023  Rada Telyukova
 ########################################################################
@@ -10,19 +10,25 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # import time   # time.sleep(3)
 
-from params import DB_GROUND, SHOW_PLOTS, SAVE_PLOTS 
+from params import DB_GROUND, SHOW_PLOTS, SAVE_PLOTS, DATA_FRAMES_DIR, SCATTERS_DIR
 import db
 import charts
 
 def main():
-    df11 = pd.read_pickle("db/data_frames/1570-11-standard")
-    print(df11.describe())
-    # print(df11.columns)
-    df9 = pd.read_pickle("db/data_frames/1570-9-standard")
-    print(df9.describe())
+    first_frame_name = "1570-9-standard"
+    second_frame_name = "lyceum-11-standard"
+    first_frame = pd.read_pickle(DATA_FRAMES_DIR + first_frame_name)
+    print(f"\n{first_frame_name}")
+    print(first_frame.describe())
+    
+    second_frame = pd.read_pickle(DATA_FRAMES_DIR + second_frame_name)
+    print(f"\n{second_frame_name}")
+    print(second_frame.describe())
+    print(second_frame.columns)
 
-    charts.histograms(df11, '1570-11-standard')
-    charts.histograms(df9, '1570-9-standard')
+    charts.histograms(first_frame, first_frame_name)
+    charts.histograms(second_frame, second_frame_name)
+    
     exit()
     conn = db.create_connection(DB_GROUND)
     sql = "SELECT id, rus FROM Scales ORDER BY id"
@@ -44,7 +50,7 @@ def main():
         if SHOW_PLOTS:
             plt.show()
         if SAVE_PLOTS:
-            plot_file_name = 'images/scatters/' + '-' + x + '-' + y + '.pdf'
+            plot_file_name = SCATTERS_DIR + '-' + x + '-' + y + '.pdf'
             plt.savefig(plot_file_name)
         plt.close()
 
