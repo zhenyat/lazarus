@@ -10,12 +10,15 @@ from params import SCALES, SHOW_PLOTS, SAVE_PLOTS, HISTOGRAMS_DIR, SCATTERS_DIR
 ######
 #   ALL histoggrams for the Data Frame
 ######
-def histograms(dataframe, data_frame_name):
-    dataframe.hist()  # simple hist - different x-axe ranges
-    dataframe.plot(kind='hist', subplots=True, title=data_frame_name)   # Good one!
+def histograms(dataframe, data_frame_name, title):
+    dataframe.hist()  # simple hist - different x-axis ranges
+    
+    plot = dataframe.plot(kind='hist', subplots=True, title=title)   # Good one!
+    for scale in range(SCALES):
+        plot[scale].set_ylabel('Частота')
 
-    plot_file_name = HISTOGRAMS_DIR + data_frame_name + '.pdf'
     if SAVE_PLOTS:
+        plot_file_name = HISTOGRAMS_DIR + data_frame_name + '.pdf'
         plt.savefig(plot_file_name)
     if SHOW_PLOTS:
         plt.show()

@@ -56,7 +56,7 @@ REL_CONSTRUCTIVE_WEIGHTS = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (2, 2, 3, 3),
 
 # Visualization
 SHOW_PLOTS = True
-SAVE_PLOTS = True
+SAVE_PLOTS = False
 
 # Directories
 DATA_FRAMES_DIR = 'db/data_frames/'

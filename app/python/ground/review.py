@@ -11,6 +11,7 @@ import db
 import sample
 import charts
 
+
 def main():
     conn = db.create_connection(DB_GROUND)
 
@@ -30,7 +31,20 @@ def main():
                 df = sample.get_data_frame(conn, model, school_nick, form)
                 sample.show_statistics(df, df_name)
                 print(df.describe())
-                print(df.corr())
+                # print(df.corr())
+
+                df = df.rename(
+                    columns={
+                        's1': 'Конфронтационный копинг',
+                        's2': 'Дистанцирование',
+                        's3': 'Самоконтроль',
+                        's4': 'Поиск социальной поддержки',
+                        's5': 'Принятие ответственности',
+                        's6': 'Бегство-избегание',
+                        's7': 'Планирование решения проблемы',
+                        's8': 'Положительная переоценка'
+                    }
+                )
 
                 file_path = DATA_FRAMES_DIR + df_name
                 df.to_pickle(file_path)
@@ -39,10 +53,16 @@ def main():
                 data_frames[df_name] = df
                 # print(df[0])
 
-                charts.histograms(df, df_name)
+                cur = conn.cursor()
+                cur.execute("SELECT title FROM Schools WHERE nick=?", (school_nick,))
+                title, = cur.fetchone()
+                title = title + ', ' + str(form) + '-й класс'
+
+                charts.histograms(df, df_name, title)
                 # charts.sample_scatters(df, df_name)
 
     conn.close()
+
 
 if __name__ == '__main__':
     main()
