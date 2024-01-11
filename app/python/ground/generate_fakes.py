@@ -14,7 +14,7 @@ import scores
 
 def main():
     conn = db.create_connection(DB_GROUND)
-
+    
     respondents.populate_with_fakes(conn)
     responses.populate_with_fakes(conn)
     scores.populate_with_fakes(conn)

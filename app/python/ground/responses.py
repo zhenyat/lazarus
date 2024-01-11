@@ -1,10 +1,9 @@
 ####### Faked data for Responses
-
 from termcolor import colored
-import random
+
+import monte_carlo as mc
 
 def populate_with_fakes(conn):
-    answers = ['never', 'rarely', 'sometimes', 'regularly']
 
     with conn:
         cur = conn.cursor()
@@ -20,12 +19,17 @@ def populate_with_fakes(conn):
         for id, in cur:
             questionnaire_ids.append(id)    # [1,2 ... 50]
 
-        # Save records into Responses
         for respondent_id in respondent_ids:
+            cur.execute("SELECT school_id, form from Respondents WHERE id=?", (respondent_id,))
+            (school_id, form) = cur.fetchone()
+
+            cur.execute("SELECT nick from Schools WHERE id=?", (school_id,))
+            school_nick, = cur.fetchone()
+
             for questionnaire_id in questionnaire_ids:
+                answer = mc.generate_answer(cur, school_nick, form, questionnaire_id)
 
-                answer = random.choice(answers)
-
+                # Save records into Responses
                 cur.execute(
                     'INSERT INTO Responses (respondent_id, questionnaire_id, answer) VALUES (?, ?, ?)',
                     (respondent_id, questionnaire_id, answer)

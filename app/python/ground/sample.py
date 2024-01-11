@@ -52,7 +52,19 @@ def get_data_frame(conn, model, school_nick, form):
     return data_frame
 
 #####
-#   Print SELECT data - TBD
+#   Gets Points for Monte-Carlo calcs
+#####
+def get_points(conn, sex):
+    if sex == 'M':
+        sql = "SELECT scale_id, male_u20_points from Points ORDER BY id"
+    else:
+        sql = "SELECT scale_id, female_u20_points from Points ORDER BY id"
+
+    data_frame = pd.read_sql_query(sql, conn)
+    return data_frame
+
+#####
+#   Prints SELECT data - TBD
 #####
 def show_data(data, data_set_name):
     for scales in data:
@@ -60,9 +72,9 @@ def show_data(data, data_set_name):
         # for scale in scales:
 
 #####
-#   Print Data Frame data
+#   Prints Data Frame data
 #####
-def get_statistics(df, data_set_name):
+def show_statistics(df, data_set_name):
     print("\n===== DataFrame: ", data_set_name)
     # print("-----DataFrame head():\n", df.head())
     print("\t     (mean  ± std dev):")

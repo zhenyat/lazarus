@@ -12,9 +12,12 @@ from params import SCALES, SHOW_PLOTS, SAVE_PLOTS
 ######
 def histograms(dataframe, data_frame_name):
     dataframe.hist()
+
     plot_file_name = 'images/histograms/' + data_frame_name + '.pdf'
-    plt.savefig(plot_file_name)
-    plt.show()
+    if SAVE_PLOTS:
+        plt.savefig(plot_file_name)
+    if SHOW_PLOTS:
+        plt.show()
 
 ######
 #   Scatter plots of Scales of the given Sample
@@ -32,12 +35,13 @@ def sample_scatters(dataframe, data_frame_name):
                 )
             if SHOW_PLOTS:
                 plt.show()
+                plt.close()
             if SAVE_PLOTS:
                 plot_file_name = 'images/scatters/' + '-' + x + '-' + y + '.pdf'
                 plt.savefig(plot_file_name)
 
 ######
-#   Scatter plots of Scales of two Samples
+#   Scales scatter plots of two Samples
 ######
 def samples_scatters(dataframe_first, data_frame_first__name, dataframe_second, data_frame_second__name,):
     print()

@@ -7,7 +7,7 @@
 from sqlite3 import Error
 from termcolor import colored
 
-from params import SCALES
+from params import SCALES, ORIGINAL_POINTS
 
 def populate_with_fakes(conn):
     with conn:
@@ -41,24 +41,21 @@ def populate_with_fakes(conn):
             for questionnaire_id, answer in responses:  # Responses Loop
 
                 # Get Scale
-                cur.execute("SELECT scale_id FROM Questionnaire WHERE id=?",
-                            (questionnaire_id,)
-                            )
+                cur.execute("SELECT scale_id FROM Questionnaire WHERE id=?", (questionnaire_id,))
 
                 # Original (Kryukova) scores
                 for scale_id, in cur.fetchall():
                     match answer:     # Calculate Original score for the Respondent
                         case 'never':
-                            original_score[scale_id] += 0
+                            original_score[scale_id] += ORIGINAL_POINTS[0]
                         case 'rarely':
-                            original_score[scale_id] += 1
+                            original_score[scale_id] += ORIGINAL_POINTS[1]
                         case 'sometimes':
-                            original_score[scale_id] += 2
+                            original_score[scale_id] += ORIGINAL_POINTS[2]
                         case 'regularly':
-                            original_score[scale_id] += 3
+                            original_score[scale_id] += ORIGINAL_POINTS[3]
                         case _:
-                            print(
-                                colored(f'----- Incorrect answer: {answer}'), 'red')
+                            print(colored(f'----- Incorrect answer: {answer}'), 'red')
                             exit()
 
             # Standard (Wasserman) scores

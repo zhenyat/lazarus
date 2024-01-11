@@ -7,15 +7,15 @@
 #   04.12.2023  Rada Telyukova, HSE Lyceum 
 ##########################################################
 
-if [ -f "$1" ]; 
+if [ -f $1 ]; 
 then
-    rm "$1"         # Remove DB if exists
+    rm $1           # Remove DB if exists
     echo "Old version of DB '$1' removed"
 fi
 
 echo "Createing new DB '$1' ..."
 
-sqlite3 "$1" <<'END_SQL'
+sqlite3 $1 <<'END_SQL'
 .read app/sql/create_schools.sql
 .read app/sql/create_scales.sql
 .read app/sql/create_questionnaire.sql
