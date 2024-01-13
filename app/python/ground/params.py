@@ -2,7 +2,7 @@
 #   Parameters for Faked Data generation
 #
 #   05.12.2023  Rada Telyukova
-#   11.01.2024  Last update
+#   13.01.2024  Last update
 ##############################################
 from termcolor import colored
 
@@ -10,6 +10,17 @@ DB_PRODUCTION = 'db/lazarus.sqlite3'
 DB_GROUND = 'db/lazarus_ground.sqlite3'
 
 SCALES = 8
+SCALE_NAMES_LOCALIZED = [
+    'Конфронтационный копинг',
+    'Дистанцирование',
+    'Самоконтроль',
+    'Поиск социальной поддержки',
+    'Принятие ответственности',
+    'Бегство-избегание',
+    'Планирование решения проблемы',
+    'Положительная переоценка'
+] 
+
 NUMBER_OF_QUESTIONS = 52  # Number of questions in Questionnaire
 ANSWERS = ['never', 'rarely', 'sometimes', 'regularly']
 ORIGINAL_POINTS = [0, 1, 2, 3]
@@ -56,7 +67,8 @@ REL_CONSTRUCTIVE_WEIGHTS = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (2, 2, 3, 3),
 
 # Visualization
 SHOW_PLOTS = True
-SAVE_PLOTS = False
+SAVE_PLOTS = True
+FIGURE_SIZES = [11, 8] # inches
 
 # Directories
 DATA_FRAMES_DIR = 'db/data_frames/'

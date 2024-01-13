@@ -5,14 +5,16 @@
 ########################################################################
 import matplotlib.pyplot as plt
 
-from params import SCALES, SHOW_PLOTS, SAVE_PLOTS, HISTOGRAMS_DIR, SCATTERS_DIR
+from params import SCALES, SHOW_PLOTS, SAVE_PLOTS, FIGURE_SIZES, HISTOGRAMS_DIR, SCATTERS_DIR
 
 ######
 #   ALL histoggrams for the Data Frame
 ######
 def histograms(dataframe, data_frame_name, title):
-    dataframe.hist()  # simple hist - different x-axis ranges
+    plt.rcParams["figure.figsize"] = FIGURE_SIZES
     
+    dataframe.hist()  # simple hist - different x-axis ranges - Not very good
+
     plot = dataframe.plot(kind='hist', subplots=True, title=title)   # Good one!
     for scale in range(SCALES):
         plot[scale].set_ylabel('Частота')
@@ -27,16 +29,16 @@ def histograms(dataframe, data_frame_name, title):
 #   Scatter plots of Scales of the given Sample
 ######
 def sample_scatters(dataframe, data_frame_name):
-    for first_scale in range(1,SCALES+1):
+    for first_scale in range(1, SCALES+1):
         for second_scale in range(first_scale+1, SCALES+1):
             x = 's'+str(first_scale)
-            y='s'+str(second_scale)
+            y = 's'+str(second_scale)
             dataframe.plot(
-                x=x, 
-                y=y, 
+                x=x,
+                y=y,
                 kind='scatter',
                 title=data_frame_name
-                )
+            )
             if SHOW_PLOTS:
                 plt.show()
                 plt.close()

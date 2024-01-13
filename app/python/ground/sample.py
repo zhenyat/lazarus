@@ -23,7 +23,7 @@ def get_data(conn, model, school_nick, form):
             SELECT s1, s2, s3, s4, s5, s6, s7, s8 FROM Scores 
             WHERE model=? AND respondent_id IN 
                 (SELECT id FROM Respondents 
-                    WHERE form=? AND school_id IN 
+                WHERE form=? AND school_id IN 
                     (SELECT id FROM SCHOOLS WHERE nick=?));
         ''',
         (model, form, school_nick)
