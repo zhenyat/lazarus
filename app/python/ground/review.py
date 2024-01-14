@@ -1,10 +1,10 @@
 #! /usr/bin/env python3
 
 ########################################################################
-#   Reviews Scores sample by sample
+#   Reviews Scores sample by sample: data & charts
 #
 #   06.12.2023  Rada Telyukova
-#   13.01.2024  Last update
+#   14.01.2024  Last update
 ########################################################################
 
 from params import DB_GROUND, SCHOOL_NICKS, FORMS, MODELS, DATA_FRAMES_DIR, SCALES, SCALE_NAMES_LOCALIZED

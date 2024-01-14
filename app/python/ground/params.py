@@ -21,6 +21,17 @@ SCALE_NAMES_LOCALIZED = [
     'Положительная переоценка'
 ] 
 
+SCALE_NAMES = {
+    's1': 'Конфронтационный копинг\t\t',
+    's2': 'Дистанцирование\t\t\t',
+    's3': 'Самоконтроль\t\t\t',
+    's4': 'Поиск социальной поддержки\t',
+    's5': 'Принятие ответственности\t',
+    's6': 'Бегство-избегание\t\t',
+    's7': 'Планирование решения проблемы\t',
+    's8': 'Положительная переоценка\t'
+}
+ 
 NUMBER_OF_QUESTIONS = 52  # Number of questions in Questionnaire
 ANSWERS = ['never', 'rarely', 'sometimes', 'regularly']
 ORIGINAL_POINTS = [0, 1, 2, 3]
@@ -69,9 +80,13 @@ REL_CONSTRUCTIVE_WEIGHTS = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (2, 2, 3, 3),
 SHOW_PLOTS = True
 SAVE_PLOTS = True
 FIGURE_SIZES = [11, 8] # inches
+TITLES = ['Лицей, 9 кл.', 'Лицей 11 кл.', 'Шк.1570, 9 кл.', 'Шк.1570, 11 кл.']
 
 # Directories
 DATA_FRAMES_DIR = 'db/data_frames/'
 HISTOGRAMS_DIR = 'images/histograms/'
 SCATTERS_DIR = 'images/scatters/'
 MC_DIR = 'images/mc'
+
+# Hypothesis
+ALPHA = 0.05

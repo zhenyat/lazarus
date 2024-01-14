@@ -28,14 +28,16 @@
 ###  Batch mode to create Production DB & populate tables with field data:
 ```sh
   % bin/init_db.sh production
-  % app/python/production/main.py
+  % bin/create_db.sh
 ```
-###  Batch mode to create Ground DB & populate tables with faked data:
+###  Batch mode to create Ground DB, populate tables with faked data & analyze it
 ```sh
   % bin/init_db.sh ground
   % app/python/ground/generate_fakes.py
+  % app/python/ground/review.py
+  % app/python/ground/t_test.py
 ```
-##
+
 ### Data Analysis
 ```
   TBD
