@@ -4,7 +4,7 @@
 #   Reviews Scores sample by sample: data & charts
 #
 #   06.12.2023  Rada Telyukova
-#   14.01.2024  Last update
+#   16.01.2024  Last update
 ########################################################################
 
 from params import DB_GROUND, SCHOOL_NICKS, FORMS, MODELS, DATA_FRAMES_DIR, SCALES, SCALE_NAMES_LOCALIZED
@@ -30,7 +30,7 @@ def main():
                 # Data frame
                 df = sample.get_data_frame(conn, model, school_nick, form)
                 sample.show_statistics(df, df_name)
-                print(df.describe())
+                print("\n",df.describe())
                 # print(df.corr())
 
                 file_path = DATA_FRAMES_DIR + df_name
@@ -45,19 +45,19 @@ def main():
                 title, = cur.fetchone()
                 title = title + ', ' + str(form) + '-й класс'
 
-                # Data frame copy for localized charts
-                df_localized = df.copy()
+                df_localized = df.copy()    # Data frame copy for localized charts
 
                 df_localized = df_localized.rename(
                     columns={
-                        's1': SCALE_NAMES_LOCALIZED[0] + "\n    mean = %5.2f ± %3.2f" % (df['s1'].mean(), df['s1'].std()),
-                        's2': SCALE_NAMES_LOCALIZED[1] + "\n    mean = %5.2f ± %3.2f" % (df['s2'].mean(), df['s2'].std()),
-                        's3': SCALE_NAMES_LOCALIZED[2] + "\n    mean = %5.2f ± %3.2f" % (df['s3'].mean(), df['s3'].std()),
-                        's4': SCALE_NAMES_LOCALIZED[3] + "\n    mean = %5.2f ± %3.2f" % (df['s4'].mean(), df['s4'].std()),
-                        's5': SCALE_NAMES_LOCALIZED[4] + "\n    mean = %5.2f ± %3.2f" % (df['s5'].mean(), df['s5'].std()),
-                        's6': SCALE_NAMES_LOCALIZED[5] + "\n    mean = %5.2f ± %3.2f" % (df['s6'].mean(), df['s6'].std()),
-                        's7': SCALE_NAMES_LOCALIZED[6] + "\n    mean = %5.2f ± %3.2f" % (df['s7'].mean(), df['s7'].std()),
-                        's8': SCALE_NAMES_LOCALIZED[7] + "\n    mean = %5.2f ± %3.2f" % (df['s8'].mean(), df['s8'].std())
+                      # 's1': SCALE_NAMES_LOCALIZED[0] + "\n    mean = %5.2f ± %3.2f" % (df['s1'].mean(), df['s1'].std()),
+                        's1': f"{SCALE_NAMES_LOCALIZED[0]}\n    сред.зн. = {df['s1'].mean():5.2f} ± {df['s1'].std():3.2f}",
+                        's2': f"{SCALE_NAMES_LOCALIZED[0]}\n    mean = {df['s2'].mean():5.2f} ± {df['s2'].std():3.2f}",
+                        's3': f"{SCALE_NAMES_LOCALIZED[0]}\n    mean = {df['s3'].mean():5.2f} ± {df['s3'].std():3.2f}",
+                        's4': f"{SCALE_NAMES_LOCALIZED[0]}\n    mean = {df['s4'].mean():5.2f} ± {df['s4'].std():3.2f}",
+                        's5': f"{SCALE_NAMES_LOCALIZED[0]}\n    mean = {df['s5'].mean():5.2f} ± {df['s5'].std():3.2f}",
+                        's6': f"{SCALE_NAMES_LOCALIZED[0]}\n    mean = {df['s6'].mean():5.2f} ± {df['s6'].std():3.2f}",
+                        's7': f"{SCALE_NAMES_LOCALIZED[0]}\n    mean = {df['s7'].mean():5.2f} ± {df['s7'].std():3.2f}",
+                        's8': f"{SCALE_NAMES_LOCALIZED[0]}\n    mean = {df['s8'].mean():5.2f} ± {df['s8'].std():3.2f}"
                     }
                 )
 

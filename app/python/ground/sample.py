@@ -6,11 +6,10 @@
 #   get_frame()   - with Pandas module
 #
 #   06.12.2023  Rada Telyukova
+#   16.01.2024  Last update
 ########################################################################
 import pandas as pd
 import numpy as np
-
-from params import DB_GROUND, SCHOOL_NICKS, FORMS, MODELS
 
 #####
 #   Gets data sample via SQL request
@@ -78,11 +77,12 @@ def show_statistics(df, data_set_name):
     print("\n===== DataFrame: ", data_set_name)
     # print("-----DataFrame head():\n", df.head())
     print("\t     (mean  ± std dev)")
-    print("\ts1:   %5.2f ± %5.2f" % (df['s1'].mean(), df['s1'].std()))
-    print("\ts2:   %5.2f ± %5.2f" % (df['s2'].mean(), df['s2'].std()))
-    print("\ts3:   %5.2f ± %5.2f" % (df['s3'].mean(), df['s3'].std()))
-    print("\ts4:   %5.2f ± %5.2f" % (df['s4'].mean(), df['s4'].std()))
-    print("\ts5:   %5.2f ± %5.2f" % (df['s5'].mean(), df['s5'].std()))
-    print("\ts6:   %5.2f ± %5.2f" % (df['s6'].mean(), df['s6'].std()))
-    print("\ts7:   %5.2f ± %5.2f" % (df['s7'].mean(), df['s7'].std()))
-    print("\ts8:   %5.2f ± %5.2f" % (df['s8'].mean(), df['s8'].std()))
+    # print("\ts1:   %5.2f ± %5.2f" % (df['s1'].mean(), df['s1'].std()))
+    print(f"\ts1:   {df['s1'].mean():5.2f} ± {df['s1'].std():5.2f}")
+    print(f"\ts2:   {df['s2'].mean():5.2f} ± {df['s2'].std():5.2f}")
+    print(f"\ts3:   {df['s3'].mean():5.2f} ± {df['s3'].std():5.2f}")
+    print(f"\ts4:   {df['s4'].mean():5.2f} ± {df['s4'].std():5.2f}")
+    print(f"\ts5:   {df['s5'].mean():5.2f} ± {df['s5'].std():5.2f}")
+    print(f"\ts6:   {df['s6'].mean():5.2f} ± {df['s6'].std():5.2f}")
+    print(f"\ts7:   {df['s7'].mean():5.2f} ± {df['s7'].std():5.2f}")
+    print(f"\ts8:   {df['s8'].mean():5.2f} ± {df['s8'].std():5.2f}")

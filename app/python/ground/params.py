@@ -48,30 +48,8 @@ FORMS = [9, 11]
 # MODELS = ['original', 'standard']
 MODELS = ['standard']
 
-# ANSWERS_GENERATION_MODE = 'uniform'
-# SCHOOL_NICKS = ['1570']
-# FORMS = [11]
-# MODELS = ['standard']
-
-# ANSWERS_GENERATION_MODE = 'strong'
-# SCHOOL_NICKS = ['1570']
-# FORMS = [11]
-# MODELS = ['standard']
-
-# ANSWERS_GENERATION_MODE = 'weak'    # {'uniform' | 'strong' | 'weak'}
-# SCHOOL_NICKS = ['1570']
-# FORMS = [9]
-# MODELS = ['standard']
-
-# Weights for answers. Scales:         1             2             3             4             5             6             7             8
-# STRONG_WEIGHTS = [('empty'), (4, 3, 2, 1), (1, 2, 3, 4), (1, 2, 3, 4), (1, 2, 3, 4), (1, 2, 3, 4), (4, 4, 4, 1), (1, 2, 3, 4), (1, 4, 4, 1)]
-# WEAK_WEIGHTS   = [('empty'), (1, 2, 3, 4), (1, 3, 4, 2), (4, 3, 2, 1), (4, 3, 2, 1), (4, 3, 2, 1), (1, 2, 3, 4), (4, 4, 1, 1), (4, 1, 1, 4)]
-
-# STRONG_WEIGHTS = [('empty'), (5, 4, 1, 0), (0, 1, 4, 5), (0, 1, 4, 5), (0, 1, 4, 5), (0, 1, 4, 5), (1, 4, 4, 1), (0, 1, 4, 5), (1, 4, 4, 1)]
-# WEAK_WEIGHTS   = [('empty'), (0, 1, 4, 5), (5, 4, 1, 0), (5, 4, 1, 0), (5, 4, 1, 0), (5, 4, 1, 0), (4, 1, 1, 4), (5, 4, 1, 0), (4, 1, 1, 4)]
-
-# Wasserman scales grouping
-#                   Scales:                  1             2             3             4             5             6             7             8
+### Wasserman scales grouping
+# Weights for answers.  Scales:              1             2             3             4             5             6             7             8
 CONSTRUCTIVE_WEIGHTS     = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (0, 0, 3, 7), (0, 0, 3, 7), (0, 1, 4, 5), (7, 3, 0, 0), (0, 0, 3, 7), (0, 1, 4, 5)]
 NON_CONSTRUCTIVE_WEIGHTS = [('empty'), (0, 0, 3, 7), (0, 0, 3, 7), (7, 3, 0, 0), (7, 3, 0, 0), (2, 3, 3, 2), (0, 0, 3, 7), (7, 3, 0, 0), (2, 3, 3, 2)]
 REL_CONSTRUCTIVE_WEIGHTS = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (2, 2, 3, 3), (2, 2, 3, 3), (0, 0, 3, 7), (7, 3, 0, 0), (2, 2, 3, 3), (0, 0, 3, 7)]
