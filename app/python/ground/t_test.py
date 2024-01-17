@@ -16,14 +16,13 @@ import db
 
 def report(df_first_title, df_first, df_second_title, df_second, results):
     print(f"\nШкала копинга\t\t\t {df_first_title}\t{df_second_title}\t\t\tt-Test")
-    print("\t\t\t\t    Среднее\t  Среднее\tstatistic\tp-value\t\tVerdict")
+    print("\t\t\t\t    Сред.зн\t  Сред.зн\tstatistic\tp-value\t\tВердикт")
     print("-"*120)
 
     i = 0
     for col in df_first.columns:
-        verdict = "Reject the H0" if results.pvalue[i] <= ALPHA else "Fail to reject the H0"
-        pvalue_formatted = f"{results.pvalue[i]:8.4f}" if results.pvalue[i] >= 0.1 * \
-            ALPHA else f"{results.pvalue[i]:8.2e}"
+        verdict = "Отклонить нуль-гипотезу" if results.pvalue[i] <= ALPHA else "Не удалось отклонить H0"
+        pvalue_formatted = f"{results.pvalue[i]:8.4f}" if results.pvalue[i] >= 0.1 * ALPHA else "~ 0.0   " #f"{results.pvalue[i]:8.2e}"
         print(SCALE_NAMES[col],
             f"{df_first[col].mean():5.2f} ± {df_first[col].std():4.2f}\t{df_second[col].mean():5.2f} ± {df_second[col].std():5.2f}",
             f"\t{results.statistic[i]:8.4f}\t{pvalue_formatted}",

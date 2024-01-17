@@ -32,7 +32,7 @@ def main():
                 # Data frame
                 df = sample.get_data_frame(conn, model, school_nick, form)
                 sample.show_statistics(df, df_name)
-                print("\n", df.describe())
+                print(f"\n{df.describe()}")
                 # print(df.corr())
 
                 file_path = DATA_FRAMES_DIR + df_name
