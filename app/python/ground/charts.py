@@ -1,19 +1,25 @@
 ########################################################################
 #   Returns draws charts for Data Frames through matplotlib
 #
+#   https://matplotlib.org/stable/users/explain/customizing.html
+#
 #   07.12.2023  Rada Telyukova
+#   17.01.2023  Last update
 ########################################################################
 import matplotlib.pyplot as plt
 
-from params import SCALES, SHOW_PLOTS, SAVE_PLOTS, FIGURE_SIZES, HISTOGRAMS_DIR, SCATTERS_DIR
+from params import SCALES, SHOW_PLOTS, SAVE_PLOTS, HISTOGRAMS_DIR, SCATTERS_DIR, FIGURE_SIZES, TITLE_FONT_SIZE, LEGEND_FONT_SIZE
 
 ######
 #   ALL histoggrams for the Data Frame
 ######
 def histograms(dataframe, data_frame_name, title):
+    # Runtime Configuration
     plt.rcParams["figure.figsize"] = FIGURE_SIZES
-    
-    dataframe.hist()  # simple hist - different x-axis ranges - Not very good
+    plt.rc('figure', titlesize=TITLE_FONT_SIZE)
+    plt.rc('legend', fontsize=LEGEND_FONT_SIZE)
+
+    # dataframe.hist()  # simple hist - different x-axis ranges - Not very good
 
     plot = dataframe.plot(kind='hist', subplots=True, title=title)   # Good one!
     for scale in range(SCALES):

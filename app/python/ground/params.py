@@ -57,8 +57,11 @@ REL_CONSTRUCTIVE_WEIGHTS = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (2, 2, 3, 3),
 # Visualization
 SHOW_PLOTS = True
 SAVE_PLOTS = True
-FIGURE_SIZES = [11, 8] # inches
 TITLES = ['Лицей, 9 кл.', 'Лицей 11 кл.', 'Шк.1570, 9 кл.', 'Шк.1570, 11 кл.']
+
+FIGURE_SIZES = [11, 8]  # inches
+TITLE_FONT_SIZE = 20    # fontsize of the figure title
+LEGEND_FONT_SIZE = 12   # legend fontsize
 
 # Directories
 DATA_FRAMES_DIR = 'db/data_frames/'

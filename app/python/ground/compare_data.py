@@ -15,19 +15,19 @@ import db
 import charts
 
 def main():
-    first_frame_name = "1570-9-standard"
-    second_frame_name = "lyceum-11-standard"
-    first_frame = pd.read_pickle(DATA_FRAMES_DIR + first_frame_name)
-    print(f"\n{first_frame_name}")
-    print(first_frame.describe())
+    df_first_name = "1570-9-standard"
+    df_second_name = "lyceum-11-standard"
+    df_first = pd.read_pickle(DATA_FRAMES_DIR + df_first_name)
+    print(f"\n{df_first_name}")
+    print(df_first.describe())
     
-    second_frame = pd.read_pickle(DATA_FRAMES_DIR + second_frame_name)
-    print(f"\n{second_frame_name}")
-    print(second_frame.describe())
-    print(second_frame.columns)
+    df_second = pd.read_pickle(DATA_FRAMES_DIR + df_second_name)
+    print(f"\n{df_second_name}")
+    print(df_second.describe())
+    print(df_second.columns)
 
-    charts.histograms(first_frame, first_frame_name)
-    charts.histograms(second_frame, second_frame_name)
+    charts.histograms(df_first, df_first_name)
+    charts.histograms(df_second, df_second_name)
     
     exit()
     conn = db.create_connection(DB_GROUND)
