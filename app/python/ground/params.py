@@ -23,7 +23,7 @@ SCALE_NAMES_LOCALIZED = [
 
 SCALE_NAMES = {
     's1': 'Конфронтационный копинг\t\t',
-    's2': 'Дистанционирование\t\t\t',
+    's2': 'Дистанционирование\t\t',
     's3': 'Самоконтроль\t\t\t',
     's4': 'Поиск социальной поддержки\t',
     's5': 'Принятие ответственности\t',
@@ -41,8 +41,8 @@ AGE_MIN = 14
 AGE_MAX = 60
 
 FAKED_RESPONDENTS = 50  # Number of Respondents per Form sample
-
 UNIFORM_RANDOM_MODE = False
+
 SCHOOL_NICKS = ['lyceum', '1570']
 FORMS = [9, 11]
 # MODELS = ['original', 'standard']
@@ -56,7 +56,7 @@ REL_CONSTRUCTIVE_WEIGHTS = [('empty'), (7, 3, 0, 0), (7, 3, 0, 0), (2, 2, 3, 3),
 
 # Visualization
 SHOW_PLOTS = True
-SAVE_PLOTS = True
+SAVE_PLOTS = False
 TITLES = ['Лицей, 9 кл.', 'Лицей 11 кл.', 'Шк.1570, 9 кл.', 'Шк.1570, 11 кл.']
 
 FIGURE_SIZES = [11, 8]  # inches

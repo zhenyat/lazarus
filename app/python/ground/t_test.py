@@ -22,7 +22,7 @@ def report(df_first_title, df_first, df_second_title, df_second, results):
     i = 0
     for col in df_first.columns:
         verdict = "Отклонить нуль-гипотезу" if results.pvalue[i] <= ALPHA else "Не удалось отклонить H0"
-        pvalue_formatted = f"{results.pvalue[i]:8.4f}" if results.pvalue[i] >= 0.1 * ALPHA else "~ 0.0   " #f"{results.pvalue[i]:8.2e}"
+        pvalue_formatted = f"{results.pvalue[i]:8.4f}" if results.pvalue[i] >= 0.1 * ALPHA else " ~0.0   " #f"{results.pvalue[i]:8.2e}"
         print(SCALE_NAMES[col],
             f"{df_first[col].mean():5.2f} ± {df_first[col].std():4.2f}\t{df_second[col].mean():5.2f} ± {df_second[col].std():5.2f}",
             f"\t{results.statistic[i]:8.4f}\t{pvalue_formatted}",

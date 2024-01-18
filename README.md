@@ -34,7 +34,7 @@
 ```sh
   % bin/init_db.sh ground
   % app/python/ground/generate_fakes.py
-  % app/python/ground/review.py
+  % app/python/ground/view_data.py
   % app/python/ground/t_test.py
 ```
 

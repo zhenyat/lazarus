@@ -32,7 +32,7 @@ def histograms(dataframe, data_frame_name, title):
         plt.show()
 
 ######
-#   Scatter plots of Scales of the given Sample
+#   Scatter plots of Scales for the given Sample
 ######
 def sample_scatters(dataframe, data_frame_name):
     for first_scale in range(1, SCALES+1):
@@ -45,6 +45,10 @@ def sample_scatters(dataframe, data_frame_name):
                 kind='scatter',
                 title=data_frame_name
             )
+            # plt.xlim(0, 100)
+            # plt.ylim(0, 100)
+            plt.axis([0, 100, 0, 100])
+
             if SHOW_PLOTS:
                 plt.show()
                 plt.close()
@@ -53,7 +57,12 @@ def sample_scatters(dataframe, data_frame_name):
                 plt.savefig(plot_file_name)
 
 ######
-#   Scales scatter plots of two Samples
+#   Scales scatter plots of two Samples same Scales
 ######
-def samples_scatters(dataframe_first, data_frame_first__name, dataframe_second, data_frame_second__name,):
-    print()
+def samples_scatters(df_first, df_second):
+    for scale in range(SCALES):
+        col = 's'+str(scale+1)
+        plt.scatter(df_first[col], df_second[col], label=col)
+        plt.xlim(0, 100)
+        plt.ylim(0, 100)
+        plt.show()

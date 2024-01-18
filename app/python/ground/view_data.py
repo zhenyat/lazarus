@@ -1,13 +1,14 @@
 #! /usr/bin/env python3
 
 ########################################################################
-#   View Scores data sample by sample: tables & charts
+#   Descriptive Stats:
+#       view samples data sample (tables & charts)
 #
 #   06.12.2023  Rada Telyukova
 #   17.01.2024  Last update
 ########################################################################
 
-from params import DB_GROUND, SCHOOL_NICKS, FORMS, MODELS, DATA_FRAMES_DIR, SCALES, SCALE_NAMES_LOCALIZED
+from params import DB_GROUND, SCHOOL_NICKS, FORMS, MODELS, DATA_FRAMES_DIR, SCALE_NAMES_LOCALIZED
 import db
 import sample
 import charts
@@ -64,8 +65,8 @@ def main():
                     }
                 )
 
-                charts.histograms(df_localized, df_name, title)
-                # charts.sample_scatters(df_localized, df_name)
+                # charts.histograms(df_localized, df_name, title)
+                charts.sample_scatters(df, df_name)
 
     conn.close()
 
