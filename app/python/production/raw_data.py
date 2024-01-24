@@ -19,14 +19,14 @@ def populate(conn, school_nick, form, data):
             cprint(('process_data.py: Incorrect number of elements: {0}').format(len(cells)), 'red')
             exit()
 
-        sex = 'M' if (cells.pop(0) == 'Мужской') else 'F'  # Translate sex
+        gender = 'M' if (cells.pop(0) == 'Мужской') else 'F'  # Translate gender
 
         age = int(cells.pop(0))
         # Clean raw data by age
         if age < AGE_MIN or age > AGE_MAX:
             cprint('Age {0} is not allowed'.format(age), 'red')
             continue
-        # print(sex, age)
+        # print(gender, age)
 
         cur = conn.cursor()
         cur.execute('SELECT id FROM Schools WHERE nick=?', (school_nick, ))
@@ -35,10 +35,10 @@ def populate(conn, school_nick, form, data):
 
         # Populate data into Respondent
         cur.execute('''
-                INSERT INTO Respondents (school_id, sex, age, form) 
+                INSERT INTO Respondents (school_id, gender, age, form) 
                 VALUES (?, ?, ?, ?)
             ''',
-                    (school_id, sex, age, form)
+                    (school_id, gender, age, form)
                     )
         conn.commit()
         current_respondent_id = cur.lastrowid   # Current (last) Respondent

@@ -53,8 +53,8 @@ def get_data_frame(conn, model, school_nick, form):
 #####
 #   Gets Points for Monte-Carlo calcs
 #####
-def get_points(conn, sex):
-    if sex == 'M':
+def get_points(conn, gender):
+    if gender == 'M':
         sql = "SELECT scale_id, male_u20_points from Points ORDER BY id"
     else:
         sql = "SELECT scale_id, female_u20_points from Points ORDER BY id"

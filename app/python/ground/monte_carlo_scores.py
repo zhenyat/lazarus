@@ -43,7 +43,7 @@ def replace_scores(pattern, data_frame):
             exit()
 
 
-def weights(conn, sex):
+def weights(conn, gender):
     df_male = sample.get_points(conn, 'M')
     print(df_male)
     df_female = sample.get_points(conn, 'F')

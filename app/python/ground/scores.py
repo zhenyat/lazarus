@@ -13,13 +13,13 @@ def populate_with_fakes(conn):
     with conn:
         cur = conn.cursor()
 
-        cur.execute("SELECT id, sex, age FROM Respondents ORDER BY id")
+        cur.execute("SELECT id, gender, age FROM Respondents ORDER BY id")
         respondents = cur.fetchall()
         # respondents = cur.fetchmany(2)
 
-        for id, sex, age in respondents:  # Respondents Loop
+        for id, gender, age in respondents:  # Respondents Loop
             respondent_id = id
-            # print('-- ', respondent_id, sex, age)
+            # print('-- ', respondent_id, gender, age)
 
             # Reset Score arrays (name + 8 scores)
             original_score = [0]*9
@@ -79,13 +79,13 @@ def populate_with_fakes(conn):
                 # print(standard_points[0], standard_points[7])
 
                 if age < 20:
-                    standard_score[scale_id] = standard_points[0] if sex == 'M' else standard_points[4]
+                    standard_score[scale_id] = standard_points[0] if gender == 'M' else standard_points[4]
                 elif age < 30:
-                    standard_score[scale_id] = standard_points[1] if sex == 'M' else standard_points[5]
+                    standard_score[scale_id] = standard_points[1] if gender == 'M' else standard_points[5]
                 elif age < 45:
-                    standard_score[scale_id] = standard_points[2] if sex == 'M' else standard_points[6]
+                    standard_score[scale_id] = standard_points[2] if gender == 'M' else standard_points[6]
                 elif age <= 60:
-                    standard_score[scale_id] = standard_points[4] if sex == 'M' else standard_points[7]
+                    standard_score[scale_id] = standard_points[4] if gender == 'M' else standard_points[7]
                 else:
                     print(colored(f'----- Incorrect age: {age}'), 'red')
                     exit()

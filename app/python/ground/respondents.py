@@ -17,11 +17,11 @@ def populate_with_fakes(conn):
             for form in FORMS:                  # Form cycle
                 age = 15 if form == 9 else 17
                 for respondent_id in range(FAKED_RESPONDENTS):
-                    sex = random.choice(['M', 'F'])
+                    gender = random.choice(['M', 'F'])
 
                     cur.execute(
-                        'INSERT INTO Respondents (school_id, sex, age, form) VALUES (?, ?, ?, ?)',
-                        (school_id, sex, age, form)
+                        'INSERT INTO Respondents (school_id, gender, age, form) VALUES (?, ?, ?, ?)',
+                        (school_id, gender, age, form)
                     )
                     conn.commit()
 
