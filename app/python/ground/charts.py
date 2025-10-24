@@ -1,5 +1,5 @@
 ########################################################################
-#   Returns draws charts for Data Frames through matplotlib
+#   Draws charts for Data Frames through matplotlib
 #
 #   https://matplotlib.org/stable/users/explain/customizing.html
 #

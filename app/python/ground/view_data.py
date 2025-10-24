@@ -65,7 +65,7 @@ def main():
                     }
                 )
 
-                # charts.histograms(df_localized, df_name, title)
+                charts.histograms(df_localized, df_name, title)
                 charts.sample_scatters(df, df_name)
 
     conn.close()

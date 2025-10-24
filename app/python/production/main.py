@@ -26,12 +26,12 @@ def main():
         for form in FORMS:
             # print('===== form: ', form)
             csv_file = 'db/csv/' + school_nick + '-' + str(form) + '.csv'
-            # print('===== input csv_file: 'csv_file)
+            # print('===== input csv_file: ', csv_file)
             data = csv.get_raw_data(csv_file)
 
             raw_data.populate(conn, school_nick, form, data)
 
-    counting.total_records(conn, 'Respondents')
+    # counting.total_records(conn, 'Respondents')
     counting.total_records(conn, 'Responses')
 
     scores.populate(conn)
